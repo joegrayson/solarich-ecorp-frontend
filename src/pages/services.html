@@ -32,5 +32,336 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body></body>
+  <body>
+    <style>
+      .custom-font-1 {
+        font-family: "Raleway", sans-serif;
+      }
+
+      .custom-font-2 {
+        font-family: "Urbanist", sans-serif;
+      }
+
+      .nav-link {
+        position: relative;
+        display: inline-block;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .nav-link:hover::before {
+        background-color: var(--underline-color);
+      }
+
+      :root {
+        --underline-color: #211c1c;
+      }
+
+      #backToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background-color: #000;
+        color: #fff;
+        font-size: 0; /* Hide any text inside the button */
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+
+      #backToTopBtn:hover {
+        opacity: 1;
+      }
+    </style>
+
+    <!-- Header -->
+
+    <header class="bg-gray-50">
+      <div
+        class="px-6 bg-gray-50 mx-auto fixed top-0 left-0 right-0 shadow-lg z-10"
+      >
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-6">
+          <div class="flex h-8 sm:h-12 items-center justify-between">
+            <div class="flex-1 md:flex md:items-center md:gap-12">
+              <a class="block" href="/index.html">
+                <span class="sr-only">Home</span>
+                <img
+                  class="w-auto h-8 sm:h-12"
+                  src="/assets/images/logo-name-only.png"
+                  alt="logo"
+                />
+              </a>
+            </div>
+
+            <div class="flex lg:hidden px-6">
+              <button
+                id="menu-toggle"
+                type="button"
+                class="-m-3.5 inline-flex items-center justify-center rounded-md p-1.5 text-gray-500"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="hidden lg:flex lg:gap-x-12">
+              <ul class="flex items-center gap-6 text-sm">
+                <li>
+                  <a
+                    class="px-1 py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    href="#"
+                  >
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    href="#"
+                  >
+                    Projects
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    href="#"
+                  >
+                    Training
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    href="#"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    href="#"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Mobile menu, show/hide based on menu open state -->
+            <div class="hidden" role="dialog" aria-modal="true" id="menu">
+              <div class="fixed inset-0 z-10">
+                <div
+                  class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-50 px-6 py-10 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+                >
+                  <div class="flex lg:hidden px-8 items-center justify-between">
+                    <a href="#" class="-m-1.5 p-1.5">
+                      <span class="sr-only">Home</span>
+                    </a>
+                    <button
+                      type="button"
+                      id="close-menu"
+                      class="inline-flex items-center justify-center rounded-md -ml-6 -mt-2.5 text-gray-700"
+                    >
+                      <span class="sr-only">Close menu</span>
+                      <svg
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                      <div class="space-y-2 py-6">
+                        <a
+                          href="#"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Services
+                        </a>
+                        <a
+                          href="#"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Projects
+                        </a>
+
+                        <a
+                          href="#"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Training
+                        </a>
+                        <a
+                          href="#"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          About
+                        </a>
+                        <a
+                          href="#"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Contact
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Mobile menu, show/hide based on menu open state -->
+          </div>
+        </div>
+      </div>
+
+      <div class="relative -mt-16">
+        <!-- <video
+            src="/assets/videos/banner-video.mp4"
+            class="absolute inset-0 object-cover w-full h-full"
+            alt=""
+            autoplay
+            muted
+          ></video> -->
+        <img
+          src="/assets/images/banner.jpeg"
+          class="absolute inset-0 object-cover w-full h-full"
+          alt="banner"
+        />
+        <div class="relative bg-opacity-60 bg-gray-700 drop-shadow-lg">
+          <svg
+            class="absolute inset-x-0 text-opacity-80 bottom-0 text-green-800 shadow-xl"
+            viewBox="0 0 1160 163"
+          >
+            <path
+              fill="currentColor"
+              d="M-164 13L-104 39.7C-44 66 76 120 196 141C316 162 436 152 556 119.7C676 88 796 34 916 13C1036 -8 1156 2 1216 7.7L1276 13V162.5H1216C1156 162.5 1036 162.5 916 162.5C796 162.5 676 162.5 556 162.5C436 162.5 316 162.5 196 162.5C76 162.5 -44 162.5 -104 162.5H-164V13Z"
+            ></path>
+          </svg>
+          <div
+            class="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+          >
+            <div
+              class="flex flex-col items-center justify-between xl:flex-row mt-10"
+            >
+              <!-- Banner Texts -->
+              <div
+                class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+              >
+                <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+                  <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
+                    <a class="mb-6 sm:mx-auto">
+                      <div
+                        class="flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 rounded-full"
+                      >
+                        <img
+                          class="w-16 h-16 sm:w-24 sm:h-24 drop-shadow-md"
+                          src="/assets/images/solarich-icon.png"
+                          alt=""
+                        />
+                      </div>
+                    </a>
+                    <div
+                      class="max-w-xl mb-6 md:mx-auto sm:text-center lg:max-w-2xl md:mb-8"
+                    >
+                      <h2
+                        class="max-w-xl mb-2 font-sans text-3xl font-bold leading-none tracking-wide drop-shadow-md text-gray-200 sm:text-5xl md:mx-auto custom-font-2"
+                      >
+                        <span class="relative inline-block">
+                          Sustainable
+                          <span class="relative text-yellow-400"> Energy</span
+                          ><br />
+                        </span>
+                        for a Sustainable
+                        <span class="relative text-green-500">Future</span
+                        ><svg
+                          viewBox="0 0 52 24"
+                          fill="currentColor"
+                          class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+                        >
+                          <defs>
+                            <pattern
+                              id="e77df901-b9d7-4b9b-822e-16b2d410795b"
+                              x="0"
+                              y="0"
+                              width=".135"
+                              height=".30"
+                            >
+                              <circle cx="1" cy="1" r=".7"></circle>
+                            </pattern>
+                          </defs>
+                          <rect
+                            fill="url(#e77df901-b9d7-4b9b-822e-16b2d410795b)"
+                            width="52"
+                            height="24"
+                          ></rect>
+                        </svg>
+                      </h2>
+                      <p
+                        class="text-base font-medium text-gray-100 md:text-2xl custom-font-2 tracking-wide"
+                      >
+                        Allow us to help you empower your home and business with
+                        our Solar PV System.
+                      </p>
+                    </div>
+                    <div>
+                      <a
+                        href="#contact"
+                        class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-widest text-white transition duration-200 rounded shadow-md bg-green-400 hover:bg-green-700 capitalize focus:shadow-outline focus:outline-none custom-font-2"
+                      >
+                        Get a quote
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End of Banner Texts -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- End of Header -->
+  </body>
 </html>
