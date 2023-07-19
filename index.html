@@ -108,13 +108,27 @@
       #backToTopBtn:hover {
         opacity: 1;
       }
+
+      .header-transparent {
+        background-color: transparent;
+        color: white;
+        box-shadow: none;
+      }
+
+      .header-scrolled {
+        background-color: white;
+        color: #26282c;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
     </style>
 
     <!-- Header -->
 
-    <header class="bg-gray-50">
+    <header>
       <div
-        class="px-6 bg-gray-50 mx-auto fixed top-0 left-0 right-0 shadow-lg z-10"
+        class="px-6 bg-gray-50 fixed top-0 left-0 right-0 shadow-lg z-10 transition-all duration-300 header-transparent"
+        id="main-header"
       >
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-6">
           <div class="flex h-8 sm:h-12 items-center justify-between">
@@ -157,7 +171,7 @@
               <ul class="flex items-center gap-6 text-sm">
                 <li>
                   <a
-                    class="px-1 py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    class="px-1 py-1 text-lg font-medium transition duration-300 hover:underline underline-offset-8 tracking-widest custom-font-2 hover:text-green-500"
                     href="/src/pages/services.html"
                   >
                     Services
@@ -166,7 +180,7 @@
 
                 <li>
                   <a
-                    class="py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    class="py-1 text-lg font-medium transition duration-300 hover:underline underline-offset-8 tracking-widest custom-font-2 hover:text-green-500"
                     href="#"
                   >
                     Training
@@ -174,7 +188,7 @@
                 </li>
                 <li>
                   <a
-                    class="py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    class="py-1 text-lg font-medium transition duration-300 hover:underline underline-offset-8 tracking-widest custom-font-2 hover:text-green-500"
                     href="#"
                   >
                     About
@@ -182,7 +196,7 @@
                 </li>
                 <li>
                   <a
-                    class="py-1 text-lg font-medium text-gray-800 transition-colors nav-link tracking-widest custom-font-2"
+                    class="py-1 text-lg font-medium transition duration-300 hover:underline underline-offset-8 tracking-widest custom-font-2 hover:text-green-500"
                     href="#contact"
                   >
                     Contact
@@ -498,7 +512,7 @@
           </div>
         </div>
         <div
-          class="grid gap-6 row-gap-5 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2"
+          class="grid gap-6 mb-8 row-gap-5 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2"
         >
           <a aria-label="View Item">
             <div
@@ -543,6 +557,24 @@
                 alt=""
               />
             </div>
+          </a>
+        </div>
+        <div class="text-center">
+          <a
+            href="/"
+            aria-label=""
+            class="inline-flex items-center font-semibold transition-colors duration-200 text-green-800 hover:text-green-500"
+          >
+            Get a quote
+            <svg
+              class="inline-block w-3 ml-2"
+              fill="currentColor"
+              viewBox="0 0 12 12"
+            >
+              <path
+                d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"
+              ></path>
+            </svg>
           </a>
         </div>
       </div>
@@ -652,7 +684,7 @@
             <!-- End of Carousel -->
           </div>
           <p
-            class="max-w-2xl mb-4 text-base font-medium md:text-lg text-gray-700 sm:mx-auto tracking-wide custom-font-2"
+            class="max-w-2xl mb-6 text-base font-medium md:text-lg text-gray-700 sm:mx-auto tracking-wide custom-font-2"
           >
             As a preferred partner of DALI Convenience Stores, we bring our
             expertise and innovation to empower businesses like yours. Join our
@@ -1147,13 +1179,14 @@
                         type="submit"
                         class="focus:shadow-outline focus:outline-none w-full py-3 mt-6 text-lg capitalize transform focus:ring focus:ring-blue-400 focus:ring-opacity-50 inline-flex items-center justify-center h-12 px-6 font-medium tracking-widest text-white transition duration-200 rounded shadow-md bg-green-500 hover:bg-green-700 focus:shadow-outline custom-font-2"
                       >
-                        Get in touch
+                        Get a quote
                       </button>
                     </div>
                     <p
-                      class="text-xs text-gray-600 sm:text-sm custom-font-2 tracking-wide"
+                      class="text-xs text-gray-600 sm:text-sm custom-font-2 tracking-normal"
                     >
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      By clicking the 'Get A Quote' button, you agree to share
+                      your personal information with us.
                     </p>
                   </form>
                 </div>
@@ -1565,6 +1598,23 @@
 
       window.addEventListener("scroll", scrollFunction);
       backToTopBtn.addEventListener("click", backToTop);
+    </script>
+
+    <script>
+      const header = document.getElementById("main-header");
+      const scrollThreshold = 50; // Set the threshold in pixels for changing the header background
+
+      function toggleHeaderBackground() {
+        if (window.scrollY > scrollThreshold) {
+          header.classList.remove("header-transparent");
+          header.classList.add("header-scrolled");
+        } else {
+          header.classList.remove("header-scrolled");
+          header.classList.add("header-transparent");
+        }
+      }
+
+      window.addEventListener("scroll", toggleHeaderBackground);
     </script>
 
     <!-- Mobile Menu Button -->
