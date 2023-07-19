@@ -41,6 +41,21 @@
 
   <body>
     <style>
+      /* CSS for Zooming Animation */
+      @keyframes zoom {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
+      }
+
+      .anim-zoom {
+        animation: zoom 15s linear infinite;
+        overflow: hidden;
+      }
+
       .custom-font-1 {
         font-family: "Raleway", sans-serif;
       }
@@ -733,7 +748,7 @@
                 <p
                   class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-amber-400 custom-font-2"
                 >
-                  Our Story
+                  Our Mission
                 </p>
               </div>
               <h2
@@ -792,12 +807,19 @@
             />
           </div>
           <div class="flex flex-col justify-center custom-font-2 tracking-wide">
+            <div>
+              <p
+                class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-green-400 custom-font-2"
+              >
+                Our Story
+              </p>
+            </div>
             <div class="pb-4 mb-4 border-b">
-              <h6 class="mb-2 text-xl font-bold leading-5">
+              <h6 class="mb-4 text-xl font-bold leading-5">
                 Solarich Enterprises Corporation
               </h6>
               <p class="text-lg font-medium text-gray-700">
-                is a Philippine Company. It was founded in 2018 in Ologanpo,
+                is a Philippine Company. It was founded in 2018 in Olongapo,
                 Zambales, Philippines and expanded its operations in Cavite,
                 Philippines to promote renewable energy in this country.
               </p>
@@ -1036,7 +1058,7 @@
                 </div>
 
                 <button
-                  class="w-full py-3 mt-6 text-sm capitalize transform focus:ring focus:ring-blue-400 focus:ring-opacity-50 inline-flex items-center justify-center h-12 px-6 font-medium tracking-widest text-white transition duration-200 rounded shadow-md bg-green-500 hover:bg-green-700 focus:shadow-outline focus:outline-none custom-font-2"
+                  class="w-full py-3 mt-6 text-lg capitalize transform focus:ring focus:ring-blue-400 focus:ring-opacity-50 inline-flex items-center justify-center h-12 px-6 font-medium tracking-widest text-white transition duration-200 rounded shadow-md bg-green-500 hover:bg-green-700 focus:shadow-outline focus:outline-none custom-font-2"
                 >
                   get in touch
                 </button>
@@ -1049,7 +1071,7 @@
 
     <!-- Contact Section -->
 
-    <!-- About Section -->
+    <!-- Location Section -->
 
     <section>
       <div
@@ -1090,17 +1112,19 @@
         </div>
         <!-- insert here -->
       </div>
-      <div class="relative">
-        <img
-          class="object-cover w-full h-56 sm:h-96"
-          src="/assets/images/about-image.JPG"
-          alt=""
-        />
+      <div class="relative overflow-hidden">
+        <div class="anim-zoom">
+          <img
+            class="object-cover w-full h-56 sm:h-96"
+            src="/assets/images/about-image.JPG"
+            alt=""
+          />
+        </div>
         <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
       </div>
     </section>
 
-    <!-- End of About Section -->
+    <!-- End of Location Section -->
 
     <!-- Our Team Section -->
 
