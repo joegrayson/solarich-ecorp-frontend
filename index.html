@@ -141,7 +141,7 @@
         opacity: 1;
       }
 
-      .header-transparent {
+      /* .header-transparent {
         background-color: transparent;
         color: white;
         box-shadow: none;
@@ -149,9 +149,68 @@
 
       .header-scrolled {
         background-color: white;
+
         color: #26282c;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      } */
+
+      /* Dropdown styles */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        opacity: 0; /* Set the initial opacity to 0 */
+        pointer-events: none; /* Prevent clicks on hidden dropdown */
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .nav-link:hover .dropdown-menu {
+        display: block;
+        opacity: 1; /* Show the dropdown when hovering the nav-link */
+        pointer-events: auto; /* Enable clicks on the dropdown */
+      }
+
+      .dropdown-item {
+        padding: 8px 12px;
+        display: block;
+        text-decoration: none;
+        transition: background-color 0.3s ease-in-out;
+        white-space: nowrap; /* Prevent text from wrapping */
+      }
+
+      .dropdown-item:hover {
+        --tw-text-opacity: 1;
+        color: rgb(34 197 94 / var(--tw-text-opacity));
+      }
+
+      /* Add the scroll background effect */
+      .header-transparent {
+        background-color: transparent;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      .header-scrolled {
+        background-color: white;
+        color: #26282c;
+        transition: background-color 0.3s ease;
+      }
+
+      .header-transparent .dropdown-menu {
+        background-color: transparent;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      .header-scrolled .dropdown-menu {
+        background-color: white;
+        color: #26282c;
+        transition: background-color 0.3s ease;
       }
     </style>
 
@@ -159,7 +218,7 @@
 
     <header>
       <div
-        class="px-6 bg-gray-50 fixed top-0 left-0 right-0 shadow-lg z-10 transition-all duration-300 header-transparent"
+        class="px-6 bg-gray-50 fixed top-0 left-0 right-0 z-10 transition-all duration-300 header-transparent"
         id="main-header"
       >
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-6">
@@ -228,31 +287,30 @@
                   </a>
                 </li>
 
-                <li>
+                <li class="nav-link">
                   <a
                     class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-500"
-                    href="#training"
+                    href="#solar-solutions"
                   >
-                    Solar Guide
+                    Solar Solutions
                   </a>
-                </li>
-
-                <li>
-                  <a
-                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-500"
-                    href="#training"
-                  >
-                    Solar Packages
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-500"
-                    href="#training"
-                  >
-                    Products
-                  </a>
+                  <div class="dropdown-menu rounded-b-md">
+                    <a
+                      class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-500"
+                      href="#learning-guide"
+                      >Learning Guide</a
+                    >
+                    <a
+                      class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-500"
+                      href="#system-packages"
+                      >System Packages</a
+                    >
+                    <a
+                      class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-500"
+                      href="#supply-products"
+                      >Supply Products</a
+                    >
+                  </div>
                 </li>
 
                 <li>
@@ -2061,8 +2119,36 @@
 
     <!-- Navigation Bar Transparent Background -->
     <script>
+      // Function to add/remove the appropriate class based on scrolling
+      function handleScroll() {
+        const header = document.getElementById("main-header");
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition === 0) {
+          header.classList.remove("header-scrolled");
+          header.classList.add("header-transparent");
+          dropdownMenu.classList.remove("header-scrolled");
+          dropdownMenu.classList.add("header-transparent");
+        } else {
+          header.classList.remove("header-transparent");
+          header.classList.add("header-scrolled");
+          dropdownMenu.classList.remove("header-transparent");
+          dropdownMenu.classList.add("header-scrolled");
+        }
+      }
+
+      // Check the initial scroll position on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        handleScroll();
+
+        // Call the function when scrolling
+        window.addEventListener("scroll", handleScroll);
+      });
+    </script>
+    <!-- <script>
       const header = document.getElementById("main-header");
-      const scrollThreshold = 50; // Set the threshold in pixels for changing the header background
+      const scrollThreshold = 50;
 
       function toggleHeaderBackground() {
         if (window.scrollY > scrollThreshold) {
@@ -2075,7 +2161,7 @@
       }
 
       window.addEventListener("scroll", toggleHeaderBackground);
-    </script>
+    </script> -->
 
     <!-- Read More Function -->
     <script>
