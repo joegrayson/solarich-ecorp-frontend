@@ -190,6 +190,12 @@
         background-color: white;
         color: #26282c;
         transition: background-color 0.3s ease;
+        --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+          0 4px 6px -4px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
       }
 
       .header-transparent .dropdown-menu {
@@ -298,7 +304,7 @@
                     <a
                       class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
                       href="#learning-guide"
-                      >Solar PV Guide</a
+                      >Learning Guide</a
                     >
                     <a
                       class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
@@ -308,7 +314,7 @@
                     <a
                       class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
                       href="#supply-products"
-                      >Supply Products</a
+                      >Products</a
                     >
                   </div>
                 </li>
@@ -544,6 +550,119 @@
     </header>
 
     <!-- End of Header -->
+
+    <!-- Introduction Section -->
+
+    <section>
+      <div
+        class="container py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+      >
+        <div
+          class="max-w-xl mb-2 md:mx-auto sm:text-center lg:max-w-3xl md:mb-6"
+        >
+          <div>
+            <p
+              class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-amber-300 custom-font-2"
+            >
+              Solarich Enterprises Corp
+            </p>
+          </div>
+          <h2
+            class="max-w-2xl mb-6 font-sans text-3xl font-bold leading-none tracking-normal text-green-900 sm:text-6xl md:mx-auto custom-font-2"
+          >
+            <span class="relative inline-block">
+              <svg
+                viewBox="0 0 52 24"
+                fill="currentColor"
+                class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-amber-300 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+              >
+                <defs>
+                  <pattern
+                    id="fdca20a0-aeb4-4caf-ba1b-4351eee42363"
+                    x="0"
+                    y="0"
+                    width=".135"
+                    height=".30"
+                  >
+                    <circle cx="1" cy="1" r=".7"></circle>
+                  </pattern>
+                </defs>
+                <rect
+                  fill="url(#fdca20a0-aeb4-4caf-ba1b-4351eee42363)"
+                  width="52"
+                  height="24"
+                ></rect>
+              </svg>
+              <span class="relative">Welcome to Solarich:</span>
+            </span>
+            Empowering Your Clean Energy Journey!
+          </h2>
+          <p
+            class="text-lg md:text-xl text-gray-700 custom-font-2 font-semibold tracking-wide"
+          >
+            Are you new to solar energy? No worries, we've got you covered! At
+            Solarich Enterprises Corp, we're dedicated to supporting both
+            beginners and enthusiasts as they embark on their exciting path
+            towards clean energy.
+          </p>
+        </div>
+        <!--  -->
+        <!-- <div
+          class="container py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 mb-4 lg:w-20 lg:h-20"
+          >
+            <svg
+              class="w-10 h-10 text-yellow-400 lg:w-16 lg:h-16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+              ></path>
+            </svg>
+          </div>
+          <div class="flex flex-col lg:flex-row">
+            <div class="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5">
+              <h2
+                class="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none"
+              >
+                The quick, brown fox<br class="hidden md:block" />
+                jumps over
+                <span class="inline-block text-deep-purple-accent-400"
+                  >a lazy dog</span
+                >
+              </h2>
+              <a
+                href="/"
+                aria-label=""
+                class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                >Learn more</a
+              >
+            </div>
+            <div class="lg:w-1/2">
+              <p class="text-base text-gray-700">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut
+                perspiciatis unde omnis iste. Sed ut perspiciatis unde omnis
+                iste natus error sit voluptatem accusantium doloremque rem
+                aperiam, eaque ipsa quae.
+              </p>
+            </div>
+          </div>
+        </div> -->
+        <!--  -->
+      </div>
+    </section>
+
+    <!-- End of Introduction Section -->
 
     <!-- Residential Section -->
 
