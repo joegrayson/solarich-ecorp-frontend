@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore the world of solar energy with Solarich's Learning Guide on Solar PV Systems. Discover grid-tied, off-grid, and hybrid systems for a greener future!
+    "
+    />
+    <title>Welcome to Solarich!</title>
+    <link rel="icon" type="image/png" href="/assets/images/solarich-icon.png" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Work+Sans:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Urbanist:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Mansalva&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <style>
+      /* CSS for Zooming Animation */
+      @keyframes zoom {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
+      }
+
+      .custom-bg {
+        background-color: #f3f4f6;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='360' viewBox='0 0 100 199'%3E%3Cg fill='%23008d2e' fill-opacity='0.07'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .anim-zoom {
+        animation: zoom 15s linear infinite;
+        overflow: hidden;
+      }
+
+      .custom-bg-dali {
+        background-color: #9f3790;
+      }
+
+      .custom-font-1 {
+        font-family: "Raleway", sans-serif;
+      }
+
+      .custom-font-2 {
+        font-family: "Urbanist", sans-serif;
+      }
+
+      .custom-font-3 {
+        font-family: "Mansalva", cursive;
+      }
+
+      .custom-font-4 {
+        font-family: "Yatra One", cursive;
+      }
+
+      .nav-link {
+        position: relative;
+        display: inline-block;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .nav-link:hover::before {
+        background-color: var(--underline-color);
+      }
+
+      .nav-link.active::before {
+        background-color: var(--underline-color);
+      }
+
+      :root {
+        --tw-text-opacity: 1;
+        --underline-color: rgb(34 197 94 / var(--tw-text-opacity));
+      }
+
+      #backToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background-color: #000;
+        color: #fff;
+        font-size: 0; /* Hide any text inside the button */
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+
+      #backToTopBtn:hover {
+        opacity: 1;
+      }
+
+      /* Dropdown styles */
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        opacity: 0; /* Set the initial opacity to 0 */
+        pointer-events: none; /* Prevent clicks on hidden dropdown */
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .nav-link:hover .dropdown-menu {
+        display: block;
+        opacity: 1; /* Show the dropdown when hovering the nav-link */
+        pointer-events: auto; /* Enable clicks on the dropdown */
+      }
+
+      .dropdown-item {
+        padding: 8px 12px;
+        display: block;
+        text-decoration: none;
+        transition: background-color 0.3s ease-in-out;
+        white-space: nowrap; /* Prevent text from wrapping */
+      }
+
+      .dropdown-item:hover {
+        --tw-text-opacity: 1;
+        color: rgb(34 197 94 / var(--tw-text-opacity));
+      }
+
+      /* Add the scroll background effect */
+      .header-transparent {
+        background-color: transparent;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      .header-scrolled {
+        background-color: white;
+        color: #26282c;
+        transition: background-color 0.3s ease;
+        --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+          0 4px 6px -4px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+
+      .header-transparent .dropdown-menu {
+        background-color: transparent;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      .header-scrolled .dropdown-menu {
+        background-color: white;
+        color: #26282c;
+        transition: background-color 0.3s ease;
+      }
+    </style>
+    <!-- Header -->
+
+    <header>
+      <div
+        class="px-6 bg-gray-50 fixed top-0 left-0 right-0 z-10 transition-all duration-300 header-transparent"
+        id="main-header"
+      >
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-6">
+          <div class="flex h-8 sm:h-12 items-center justify-between">
+            <div class="flex-1 md:flex md:items-center md:gap-12">
+              <a class="block" href="https://solarichenterprises.netlify.app/">
+                <span class="sr-only">Home</span>
+                <img
+                  class="w-auto h-8 sm:h-10"
+                  src="/assets/images/logo-name-only.png"
+                  alt="logo"
+                />
+              </a>
+            </div>
+
+            <div class="flex lg:hidden px-6">
+              <button
+                id="menu-toggle"
+                type="button"
+                class="-m-3.5 inline-flex items-center justify-center rounded-md p-1.5 text-green-500"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="hidden lg:flex lg:gap-x-12">
+              <ul class="flex items-center gap-6 text-sm">
+                <li>
+                  <a
+                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-400"
+                    href="https://solarichenterprises.netlify.app/"
+                  >
+                    Home
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-400"
+                    href="#residential"
+                  >
+                    Residential
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-400"
+                    href="#commercial"
+                  >
+                    Commercial
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-400"
+                    href="#training"
+                  >
+                    Solar PV Training
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a
+                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-400"
+                    href="#solar-solutions"
+                  >
+                    Solar Solutions
+                  </a>
+                  <div class="dropdown-menu rounded-b-md">
+                    <a
+                      class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
+                      href="/pages/learning-guide.html""
+                      >Learning Guide</a
+                    >
+                    <a
+                      class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
+                      href="/pages/system-packages.html"
+                      >System Packages</a
+                    >
+                    <a
+                      class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
+                      href="/pages/products.html"
+                      >Products</a
+                    >
+                  </div>
+                </li>
+
+                <li>
+                  <a
+                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-400"
+                    href="#about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="px-1 py-1 text-md font-medium transition duration-300 nav-link tracking-wider custom-font-2 hover:text-green-400"
+                    href="#contact"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Mobile menu, show/hide based on menu open state -->
+            <div class="hidden" role="dialog" aria-modal="true" id="menu">
+              <div class="fixed inset-0 z-10">
+                <div
+                  class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-50 px-6 py-10 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+                >
+                  <div class="flex lg:hidden px-8 items-center justify-between">
+                    <a href="#" class="-m-1.5 p-1.5">
+                      <span class="sr-only">Home</span>
+                    </a>
+                    <button
+                      type="button"
+                      id="close-menu"
+                      class="inline-flex items-center justify-center rounded-md -ml-6 -mt-2.5 text-gray-700"
+                    >
+                      <span class="sr-only">Close menu</span>
+                      <svg
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                      <div class="space-y-2 py-6">
+                        <a
+                          href="https://solarichenterprises.netlify.app/"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Home
+                        </a>
+                        <a
+                          href="https://solarichenterprises.netlify.app/#residential"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Residential
+                        </a>
+                        <a
+                          href="https://solarichenterprises.netlify.app/#commercial"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Commercial
+                        </a>
+                        <a
+                          href="https://solarichenterprises.netlify.app/#training"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Solar PV Training
+                        </a>
+                        <a
+                          href="/pages/learning-guide.html""
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Learning Guide
+                        </a>
+                        <a
+                          href="/pages/system-packages.html"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          System Packages
+                        </a>
+                        <a
+                          href="/pages/products.html"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Products
+                        </a>
+                        <a
+                          href="https://solarichenterprises.netlify.app/#about"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          About
+                        </a>
+                        <a
+                          href="https://solarichenterprises.netlify.app/#contact"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Contact
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Mobile menu, show/hide based on menu open state -->
+          </div>
+        </div>
+      </div>
+
+      <div class="relative -mt-20">
+        <!-- Remove the comment for video element if wanting to add a video -->
+        <!-- <video
+            src="/assets/videos/banner-video.mp4"
+            class="absolute inset-0 object-cover w-full h-full"
+            alt=""
+            autoplay
+            muted
+            loop
+          ></video> -->
+        <img
+          src="/assets/images/banner.jpeg"
+          class="absolute inset-0 object-cover w-full h-full"
+          alt="banner"
+        />
+
+        <div class="relative bg-opacity-60 bg-gray-700 drop-shadow-lg">
+          <svg
+            class="absolute inset-x-0 text-opacity-80 bottom-0 text-green-800 shadow-xl"
+            viewBox="0 0 1160 163"
+          >
+            <path
+              fill="currentColor"
+              d="M-164 13L-104 39.7C-44 66 76 120 196 141C316 162 436 152 556 119.7C676 88 796 34 916 13C1036 -8 1156 2 1216 7.7L1276 13V162.5H1216C1156 162.5 1036 162.5 916 162.5C796 162.5 676 162.5 556 162.5C436 162.5 316 162.5 196 162.5C76 162.5 -44 162.5 -104 162.5H-164V13Z"
+            ></path>
+          </svg>
+          <div
+            class="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+          >
+            <div
+              class="flex flex-col items-center justify-between xl:flex-row mt-10"
+            >
+              <!-- Banner Texts -->
+              <div
+                class="px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10"
+              >
+                <div class="max-w-xl sm:mx-auto lg:max-w-3xl">
+                  <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
+                    <div
+                      class="max-w-xl mb-6 md:mx-auto sm:text-center lg:max-w-3xl md:mb-8"
+                    >
+                      <h2
+                        class="max-w-2xl pt-16 mb-2 font-sans text-3xl font-bold leading-none tracking-wide drop-shadow-md text-gray-200 sm:text-6xl md:mx-auto custom-font-2"
+                      >
+                        <span class="relative inline-block">
+                          Solar PV Systems<br />
+                        </span>
+                        Learning Guide
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End of Banner Texts -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- End of Header -->
+
+    <!-- Footer -->
+
+    <footer class="bg-green-50">
+        <div
+          class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8"
+        >
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:col-span-2">
+            <div class="px-4 py-16 sm:px-6 md:col-span-2 lg:col-span-3 lg:px-8">
+              <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                <div>
+                  <div class="text-teal-600 flex justify-start sm:justify-start">
+                    <img
+                      src="/assets/images/logo-name-only.png"
+                      alt=""
+                      class="w-auto h-12"
+                    />
+                  </div>
+  
+                  <p class="mt-4 max-w-xs text-gray-500 custom-font-2">
+                    Sustainable Energy for a Sustainable Future
+                  </p>
+                </div>
+  
+                <div>
+                  <p>
+                    <span class="text-xs uppercase tracking-wide text-gray-500">
+                      Email us
+                    </span>
+  
+                    <a
+                      href="mailto:solarichenterprises@gmail.com"
+                      class="block text-lg font-medium text-gray-900 hover:opacity-75 sm:text-xl underline underline-offset-4"
+                    >
+                      solarichenterprisescorp@gmail.com
+                    </a>
+                  </p>
+  
+                  <p class="mt-4">
+                    <span class="text-xs uppercase tracking-wide text-gray-500">
+                      Call us
+                    </span>
+  
+                    <a
+                      href="tel:+639176213201"
+                      class="block text-lg font-medium text-gray-900 hover:opacity-75 sm:text-xl underline underline-offset-4"
+                    >
+                      09176213201
+                    </a>
+                  </p>
+  
+                  <ul class="mt-8 space-y-1 text-sm text-gray-700 custom-font-2">
+                    <li class="text-lg font-medium">
+                      <a
+                        href="https://goo.gl/maps/4mEtz6eKJZZZQ3GKA"
+                        class="transition-colors duration-300 transform hover:text-green-800 md:hover:underline underline md:no-underline underline-offset-4"
+                        >279 Malagasang Road 1C, Imus, Cavite</a
+                      >
+                    </li>
+                    <li class="text-md font-normal">
+                      Monday to Saturday: 8am - 5pm
+                    </li>
+                  </ul>
+  
+                  <ul class="mt-8 flex gap-6">
+                    <li>
+                      <a
+                        href="https://facebook.com/solarichecorp"
+                        rel="noreferrer"
+                        target="_blank"
+                        class="text-gray-700 transition hover:opacity-75"
+                      >
+                        <span class="sr-only">Facebook</span>
+  
+                        <svg
+                          class="h-6 w-6"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+  
+                    <li>
+                      <a
+                        href="https://www.instagram.com/solarich.ecorp/"
+                        rel="noreferrer"
+                        target="_blank"
+                        class="text-gray-700 transition hover:opacity-75"
+                      >
+                        <span class="sr-only">Instagram</span>
+  
+                        <svg
+                          class="h-6 w-6"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+  
+                <div
+                  class="grid grid-cols-1 gap-4 sm:grid-cols-2 custom-font-2 tracking-wide"
+                >
+                  <div>
+                    <p class="font-semibold text-gray-900">Links</p>
+  
+                    <ul class="mt-6 space-y-4 text-sm">
+                      <li>
+                        <a
+                          href="#residential"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          Residential Services
+                        </a>
+                      </li>
+  
+                      <li>
+                        <a
+                          href="#commercial"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          Commercial Services
+                        </a>
+                      </li>
+  
+                      <li>
+                        <a
+                          href="#training"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          Solar PV Training
+                        </a>
+                      </li>
+  
+                      <li>
+                        <a
+                          href="/pages/learning-guide.html"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          Learning Guide
+                        </a>
+                      </li>
+  
+                      <li>
+                        <a
+                          href="/pages/system-packages.html"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          System Packages
+                        </a>
+                      </li>
+  
+                      <li>
+                        <a
+                          href="/pages/products.html"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          Products
+                        </a>
+                      </li>
+  
+                      
+                    </ul>
+                  </div>
+  
+                  <div>
+                    <p class="font-semibold text-gray-900">Company</p>
+  
+                    <ul class="mt-6 space-y-4 text-sm">
+                      <li>
+                        <a
+                          href="/pages/about.html"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          About
+                        </a>
+                      </li>
+  
+                      <li>
+                        <a
+                          href="#team"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          Meet the Team
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="#contact"
+                          class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                        >
+                          Contact
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="mt-12 border-t border-gray-100 pt-12">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                  <p class="mt-8 text-xs text-gray-500 sm:mt-0 custom-font-2">
+                    &copy; 2023. Solarich Enterprises Corp. All rights reserved.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+  
+      <!-- End of Footer -->
+  
+      <!-- Back to Top Button -->
+  
+      <button
+        onclick="backToTop()"
+        id="backToTopBtn"
+        class="fixed bottom-10 right-10 p-2 rounded-full flex items-center justify-center transition-colors focus:outline-none"
+        title="Back to Top"
+      >
+        <svg
+          class="w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
+        </svg>
+      </button>
+  
+      <!-- Scroll To Top Button Function -->
+      <script>
+        const backToTopBtn = document.getElementById("backToTopBtn");
+  
+        const backToTop = () => {
+          document.body.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+  
+          document.documentElement.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        };
+  
+        const scrollFunction = () => {
+          if (window.scrollY > 20) {
+            backToTopBtn.style.display = "block";
+          } else {
+            backToTopBtn.style.display = "none";
+          }
+        };
+  
+        window.addEventListener("scroll", scrollFunction);
+        backToTopBtn.addEventListener("click", backToTop);
+      </script>
+  
+      <!-- Active Navigation Link Underline Effect -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const observerOptions = {
+            rootMargin: "0px",
+            threshold: 0.6, // Adjust this threshold based on your needs
+          };
+  
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+              const navLink = document.querySelector(
+                `a[href="#${entry.target.id}"]`
+              );
+              if (entry.isIntersecting) {
+                navLink.classList.add("active");
+              } else {
+                navLink.classList.remove("active");
+              }
+            });
+          }, observerOptions);
+  
+          // Select all the sections with the class "scroll-section"
+          const sections = document.querySelectorAll(".scroll-section");
+  
+          sections.forEach((section) => {
+            observer.observe(section);
+          });
+        });
+      </script>
+  
+      <!-- Navigation Bar Transparent Background -->
+      <script>
+        // Function to add/remove the appropriate class based on scrolling
+        function handleScroll() {
+          const header = document.getElementById("main-header");
+          const dropdownMenu = document.querySelector(".dropdown-menu");
+          const scrollPosition = window.scrollY;
+  
+          if (scrollPosition === 0) {
+            header.classList.remove("header-scrolled");
+            header.classList.add("header-transparent");
+            dropdownMenu.classList.remove("header-scrolled");
+            dropdownMenu.classList.add("header-transparent");
+          } else {
+            header.classList.remove("header-transparent");
+            header.classList.add("header-scrolled");
+            dropdownMenu.classList.remove("header-transparent");
+            dropdownMenu.classList.add("header-scrolled");
+          }
+        }
+  
+        // Check the initial scroll position on page load
+        document.addEventListener("DOMContentLoaded", () => {
+          handleScroll();
+  
+          // Call the function when scrolling
+          window.addEventListener("scroll", handleScroll);
+        });
+      </script>
+  
+      <!-- Read More Function -->
+      <script>
+        function toggleReadMore(event) {
+          const readMoreLink = event.target;
+          const contentBlock = readMoreLink.closest(".overflow-hidden");
+          const readMoreText = contentBlock.querySelector(".read-more-text");
+  
+          if (readMoreText.classList.contains("line-clamp-3")) {
+            readMoreText.classList.remove("line-clamp-3");
+            readMoreLink.textContent = "Show less";
+          } else {
+            readMoreText.classList.add("line-clamp-3");
+            readMoreLink.textContent = "Read more";
+          }
+        }
+      </script>
+  
+      <!-- Mobile Menu Button -->
+      <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        menuToggle.addEventListener("click", () => {
+          document.getElementById("menu").classList.toggle("hidden");
+        });
+  
+        const closeMenu = document.getElementById("close-menu");
+        closeMenu.addEventListener("click", () => {
+          document.getElementById("menu").classList.toggle("hidden");
+        });
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  </body>
+</html>

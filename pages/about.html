@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Solarich Enterprises - Your premier solar installation provider for residential, commercial, and industrial clients. Quality solutions for clean energy.
+    "
+    />
     <title>Welcome to Solarich!</title>
     <link rel="icon" type="image/png" href="/assets/images/solarich-icon.png" />
     <link href="/dist/output.css" rel="stylesheet" />
@@ -184,6 +189,12 @@
         background-color: white;
         color: #26282c;
         transition: background-color 0.3s ease;
+        --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+          0 4px 6px -4px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
       }
 
       .header-transparent .dropdown-menu {
@@ -290,18 +301,18 @@
                   <div class="dropdown-menu rounded-b-md">
                     <a
                       class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
-                      href="#learning-guide"
-                      >Solar PV Guide</a
+                      href="/pages/learning-guide.html""
+                      >Learning Guide</a
                     >
                     <a
                       class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
-                      href="#system-packages"
+                      href="/pages/system-packages.html"
                       >System Packages</a
                     >
                     <a
                       class="dropdown-item px-1 py-1 text-md font-medium transition duration-300 tracking-wider custom-font-2 hover:text-green-400"
-                      href="#supply-products"
-                      >Supply Products</a
+                      href="/pages/products.html"
+                      >Products</a
                     >
                   </div>
                 </li>
@@ -386,22 +397,22 @@
                           Solar PV Training
                         </a>
                         <a
-                          href="#"
+                          href="/pages/learning-guide.html""
                           class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
                         >
-                          Solar PV Guide
+                          Learning Guide
                         </a>
                         <a
-                          href="#"
+                          href="/pages/system-packages.html"
                           class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
                         >
                           System Packages
                         </a>
                         <a
-                          href="#"
+                          href="/pages/products.html"
                           class="-mx-3 text-sm font-semibold leading-6 text-center text-gray-900 block px-4 py-2 hover:bg-gray-100"
                         >
-                          Supply Products
+                          Products
                         </a>
                         <a
                           href="https://solarichenterprises.netlify.app/#about"
@@ -1092,12 +1103,32 @@
 
                     <li>
                       <a
-                        href="#contact"
+                        href="/pages/learning-guide.html"
                         class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
                       >
-                        Contact
+                        Learning Guide
                       </a>
                     </li>
+
+                    <li>
+                      <a
+                        href="/pages/system-packages.html"
+                        class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                      >
+                        System Packages
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="/pages/products.html"
+                        class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                      >
+                        Products
+                      </a>
+                    </li>
+
+                    
                   </ul>
                 </div>
 
@@ -1107,7 +1138,7 @@
                   <ul class="mt-6 space-y-4 text-sm">
                     <li>
                       <a
-                        href="#about"
+                        href="/pages/about.html"
                         class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
                       >
                         About
@@ -1120,6 +1151,15 @@
                         class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
                       >
                         Meet the Team
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="#contact"
+                        class="text-gray-700 transition hover:opacity-75 hover:underline underline-offset-4"
+                      >
+                        Contact
                       </a>
                     </li>
                   </ul>
