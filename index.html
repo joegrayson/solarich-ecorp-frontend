@@ -1763,7 +1763,7 @@
                       >See all the benefits and savings of going solar.</a
                     >
                   </p>
-                  <form>
+                  <form id="frmGetQuote">
                     <div class="mb-1 sm:mb-2">
                       <label
                         for="name"
@@ -1785,7 +1785,7 @@
                         required=""
                         type="email"
                         class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-gray-50 border border-gray-200 rounded-md shadow-sm appearance-none focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none tracking-wider font-normal text-md sm:text-lg custom-font-2 placeholder-gray-400"
-                        id="email"
+                        id="receiver"
                         name="email"
                       />
                     </div>
@@ -1807,37 +1807,41 @@
                       >
                       <select
                         class="block w-full text-md sm:text-lg px-5 py-3 mt-2 transition duration-200 text-gray-700 bg-gray-50 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none tracking-wider font-normal custom-font-2"
+                        id="subject"
                       >
                         <option
                           class="tracking-wide font-normal"
-                          value="general"
+                          value="General Inquiry"
                         >
                           General Inquiry
                         </option>
-                        <option class="tracking-wide font-normal" value="quote">
+                        <option
+                          class="tracking-wide font-normal"
+                          value="Quote Request"
+                        >
                           Quote Request
                         </option>
                         <option
                           class="tracking-wide font-normal"
-                          value="services"
+                          value="Installation Services"
                         >
                           Installation Services
                         </option>
                         <option
                           class="tracking-wide font-normal"
-                          value="consultation"
+                          value="Project Consultation"
                         >
                           Project Consultation
                         </option>
                         <option
                           class="tracking-wide font-normal"
-                          value="training-program"
+                          value="Solar PV Training Program"
                         >
                           Solar PV Training Program
                         </option>
                         <option
                           class="tracking-wide font-normal"
-                          value="partnership"
+                          value="Partnership Opportunities"
                         >
                           Partnership Opportunities
                         </option>
@@ -1852,6 +1856,7 @@
                       <textarea
                         class="block w-full text-md sm:text-lg h-20 md:h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-gray-50 border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none transition duration-200 tracking-wider font-normal custom-font-2"
                         placeholder="How can we help you?"
+                        id="text"
                       ></textarea>
                     </div>
                     <div class="mt-2 mb-2 sm:mb-4">
@@ -2292,5 +2297,6 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <script src="/js/sent-email.js"></script>
   </body>
 </html>
