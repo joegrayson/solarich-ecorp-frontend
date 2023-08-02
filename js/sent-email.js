@@ -28,7 +28,8 @@ frmGetQuote.addEventListener("submit", async function (event) {
     const response = await request.json();
     clearFields();
     if (response.responseMessage === "send succesfully") {
-      window.location.href = "http://solarichenterprises.netlify.app/pages/thank-you.html";
+      window.location.href =
+        "http://solarichenterprises.netlify.app/pages/thank-you.html";
     } else {
       console.log("false");
     }
